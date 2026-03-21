@@ -47,7 +47,7 @@ class TagResource extends Resource
                             ->unique(ignoreRecord: true),
 
                         Forms\Components\ColorPicker::make('color')
-                            ->default('#6B7280')
+                            ->default('#3B82F6')
                             ->required(),
                     ])
                     ->columns(2),
