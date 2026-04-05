@@ -358,6 +358,7 @@ class TicketResource extends Resource
     {
         return [
             RelationManagers\RepliesRelationManager::class,
+            RelationManagers\SideConversationsRelationManager::class,
             RelationManagers\ActivitiesRelationManager::class,
             RelationManagers\FollowersRelationManager::class,
         ];
