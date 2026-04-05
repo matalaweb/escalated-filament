@@ -114,6 +114,10 @@ class EscalatedFilamentPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
+        if (! config('escalated.ui.enabled', true)) {
+            return;
+        }
+
         $panel
             ->resources([
                 TicketResource::class,
@@ -162,6 +166,10 @@ class EscalatedFilamentPlugin implements Plugin
 
     public function boot(Panel $panel): void
     {
+        if (! config('escalated.ui.enabled', true)) {
+            return;
+        }
+
         //
     }
 }

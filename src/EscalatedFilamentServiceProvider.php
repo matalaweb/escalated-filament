@@ -20,6 +20,10 @@ class EscalatedFilamentServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        if (! config('escalated.ui.enabled', true)) {
+            return;
+        }
+
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'escalated-filament');
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'escalated-filament');
 
