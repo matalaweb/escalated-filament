@@ -199,43 +199,6 @@ class ViewTicket extends ViewRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\Action::make('reply')
-                ->label(__('escalated-filament::filament.resources.ticket.action_reply'))
-                ->icon('heroicon-o-chat-bubble-left-right')
-                ->color('primary')
-                ->form([
-                    Forms\Components\RichEditor::make('body')
-                        ->label(__('escalated-filament::filament.resources.ticket.action_reply'))
-                        ->required(),
-                ])
-                ->action(function (array $data): void {
-                    app(TicketService::class)
-                        ->reply($this->record, auth()->user(), $data['body']);
-
-                    Notification::make()
-                        ->title(__('escalated-filament::filament.resources.ticket.notification_reply_sent'))
-                        ->success()
-                        ->send();
-                }),
-
-            Actions\Action::make('addNote')
-                ->label(__('escalated-filament::filament.resources.ticket.action_add_note'))
-                ->icon('heroicon-o-pencil-square')
-                ->color('gray')
-                ->form([
-                    Forms\Components\RichEditor::make('body')
-                        ->label(__('escalated-filament::filament.resources.ticket.field_internal_note'))
-                        ->required(),
-                ])
-                ->action(function (array $data): void {
-                    app(TicketService::class)
-                        ->addNote($this->record, auth()->user(), $data['body']);
-
-                    Notification::make()
-                        ->title(__('escalated-filament::filament.resources.ticket.notification_note_added'))
-                        ->success()
-                        ->send();
-                }),
 
             Actions\Action::make('assign')
                 ->label(__('escalated-filament::filament.actions.assign_ticket.label'))
